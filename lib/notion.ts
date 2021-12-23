@@ -1,3 +1,5 @@
+// based on https://samuelkraft.com/blog/building-a-notion-blog-with-public-api
+
 import { Client } from "@notionhq/client";
 
 const notion = new Client({
