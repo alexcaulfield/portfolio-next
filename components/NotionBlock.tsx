@@ -10,7 +10,7 @@ enum NotionBlockTypes {
 }
 
 type BlockName = {
-  [key in NotionBlockTypes]?: TextArray[]
+  [key in NotionBlockTypes]?: TextArray
 }
 export interface BlockData {
   type: NotionBlockTypes;
@@ -18,32 +18,34 @@ export interface BlockData {
   id: string;
 }
 
-const NotionBlock = (props: BlockData & BlockName) => {
+type Props = BlockData & BlockName;
+
+const NotionBlock = (props: Props) => {
   let data = null;
   switch (props.type) {
     case NotionBlockTypes.p:
-      data = props[NotionBlockTypes.p];
+      data = props[NotionBlockTypes.p] as unknown as TextArray;
       return (
         <p>
           <NotionText {...data} />
         </p>
       )
     case NotionBlockTypes.h1:
-      data = props[NotionBlockTypes.h1];
+      data = props[NotionBlockTypes.h1] as unknown as TextArray;
       return (
         <h1>
           <NotionText {...data} />
         </h1>
       )
     case NotionBlockTypes.h2:
-      data = props[NotionBlockTypes.h2];
+      data = props[NotionBlockTypes.h2] as unknown as TextArray;
       return (
         <h2>
           <NotionText {...data} />
         </h2>
       )
     case NotionBlockTypes.h3:
-      data = props[NotionBlockTypes.h3];
+      data = props[NotionBlockTypes.h3] as unknown as TextArray;
       return (
         <h3>
           <NotionText {...data} />

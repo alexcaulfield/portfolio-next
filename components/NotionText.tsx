@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 export interface TextArray {
-  text: Text[] | null;
+  text: Text[];
 }
 interface Text {
   annotations: {
@@ -22,11 +22,17 @@ interface Text {
 }
 
 const NotionText = (props: TextArray) => {
-  return props?.text?.map((value: Text) => {
-    return (
-      <span key={value.text.content}>{value.text.content}</span>
-    )
-  });
+  return (
+    <>
+      {
+        props?.text?.map((value: Text) => {
+          return (
+            <span key={value.text.content}>{value.text.content}</span>
+          )
+        })
+      }
+    </>
+  );
 }
 
 export default NotionText;
