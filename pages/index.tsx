@@ -4,6 +4,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { getBlocks } from "../lib/notion";
 import NotionBlock, {BlockData} from '../components/NotionBlock';
+import { Stack } from '@chakra-ui/react'
 
 const pageId = process.env.NOTION_HOME_PAGE_ID || '';
 
@@ -20,7 +21,9 @@ const Home = ({data}: Props) => {
       </Head>
 
       <main className={styles.main}>
-        {data.map(block => <NotionBlock key={block.id} {...block} />)}
+        <Stack spacing={4}>
+          {data.map(block => <NotionBlock key={block.id} {...block} />)}
+        </Stack>
       </main>
 
       <footer className={styles.footer}>

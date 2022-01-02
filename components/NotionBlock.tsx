@@ -1,6 +1,7 @@
 import * as React from 'react'
 import type {TextArray} from './NotionText';
 import NotionText from './NotionText';
+import { Heading, Text } from '@chakra-ui/react'
 
 enum NotionBlockTypes {
   p = 'paragraph',
@@ -26,30 +27,30 @@ const NotionBlock = (props: Props) => {
     case NotionBlockTypes.p:
       data = props[NotionBlockTypes.p] as unknown as TextArray;
       return (
-        <p>
+        <Text fontSize='lg'>
           <NotionText {...data} />
-        </p>
+        </Text>
       )
     case NotionBlockTypes.h1:
       data = props[NotionBlockTypes.h1] as unknown as TextArray;
       return (
-        <h1>
+        <Heading as='h1' size='xl'>
           <NotionText {...data} />
-        </h1>
+        </Heading>
       )
     case NotionBlockTypes.h2:
       data = props[NotionBlockTypes.h2] as unknown as TextArray;
       return (
-        <h2>
+        <Heading as='h2' size='lg'>
           <NotionText {...data} />
-        </h2>
+        </Heading>
       )
     case NotionBlockTypes.h3:
       data = props[NotionBlockTypes.h3] as unknown as TextArray;
       return (
-        <h3>
+        <Heading as='h3' size='md'>
           <NotionText {...data} />
-        </h3>
+        </Heading>
       )
     default:
       return null;
