@@ -4,7 +4,8 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { getBlocks } from "../lib/notion";
 import NotionBlock, {BlockData} from '../components/NotionBlock';
-import { Stack } from '@chakra-ui/react'
+import { Stack, HStack, Box } from '@chakra-ui/react'
+import Fuji from '../resources/images/fuji.jpg';
 
 const pageId = process.env.NOTION_HOME_PAGE_ID || '';
 
@@ -21,9 +22,23 @@ const Home = ({data}: Props) => {
       </Head>
 
       <main className={styles.main}>
-        <Stack spacing={4}>
-          {data.map(block => <NotionBlock key={block.id} {...block} />)}
-        </Stack>
+        <HStack spacing={6}>
+          <Box p={5} flex='1'>
+            <Image 
+              width={600}
+              height={400}
+              src={Fuji} 
+              layout='responsive' 
+              alt='Mt Fuji'
+              placeholder='blur'
+            /> 
+          </Box>
+          <Box p={5} flex='1'>
+            <Stack spacing={4}>
+              {data.map(block => <NotionBlock key={block.id} {...block} />)}
+            </Stack>
+          </Box>
+        </HStack>
       </main>
 
       <footer className={styles.footer}>
