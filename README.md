@@ -3,6 +3,7 @@
 ### Technologies Used
 
 - Next.js
+- TypeScript
 - Notion API
 - Chakra UI
 
