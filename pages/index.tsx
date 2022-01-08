@@ -6,6 +6,7 @@ import { getBlocks } from "../lib/notion";
 import NotionBlock, {BlockData} from '../components/NotionBlock';
 import { Stack, HStack, Box } from '@chakra-ui/react'
 import Fuji from '../resources/images/fuji.jpg';
+import Navbar from '../components/Navbar';
 
 const pageId = process.env.NOTION_HOME_PAGE_ID || '';
 
@@ -21,6 +22,7 @@ const Home = ({data}: Props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Navbar />
       <main className={styles.main}>
         <HStack spacing={6}>
           <Box p={5} flex='1'>
