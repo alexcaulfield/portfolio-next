@@ -1,12 +1,12 @@
 import * as React from 'react'
 import Image from 'next/image'
-import { Flex, Heading, Menu, MenuButton, MenuList, MenuItem, IconButton } from '@chakra-ui/react'
-import { HamburgerIcon } from '@chakra-ui/icons'
+import { Flex, Heading, Menu, MenuButton, MenuList, MenuItem, IconButton, Container, Spacer } from '@chakra-ui/react'
+import { HamburgerIcon, MoonIcon } from '@chakra-ui/icons'
 import Logo from '../resources/images/logo.png';
 
 const Navbar = () => (
-  <Flex>
-    <Flex position="fixed" top="1rem" left="3rem" align="center">
+  <Flex p={2} position='sticky'>
+    <Flex align='center'>
       <Image 
         width={40}
         height={40}
@@ -16,12 +16,13 @@ const Navbar = () => (
       /> 
       <Flex
         display={['none', 'none', 'flex','flex']}
-        paddingLeft="0.5rem"
+        ml="0.5rem"
       >
         <Heading as='h3' size='md'>Alex Caulfield</Heading>
       </Flex>
     </Flex>
-    <Flex position="fixed" top="1rem" right="3rem" align="center">
+    <Spacer />
+    <Flex>
       <Flex
         display={['flex', 'flex', 'none', 'none']}
       >
@@ -39,6 +40,9 @@ const Navbar = () => (
           </MenuList>
         </Menu>
       </Flex>
+      <IconButton aria-label="Toggle Mode" variant='outline' ml={2}>
+        <MoonIcon/>
+      </IconButton>
     </Flex>
   </Flex>
 );
