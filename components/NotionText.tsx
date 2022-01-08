@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Link } from '@chakra-ui/react';
 
 export interface TextArray {
   text: Text[];
@@ -16,7 +17,9 @@ interface Text {
   plain_text: string,
   text: {
     content: string,
-    link: string | null
+    link: {
+      url: string | undefined;
+    }
   },
   type: "text"
 }
@@ -25,11 +28,11 @@ const NotionText = (props: TextArray) => {
   return (
     <>
       {
-        props?.text?.map((value: Text) => {
-          return (
-            <span key={value.text.content}>{value.text.content}</span>
-          )
-        })
+        props?.text?.map(({text}: Text) => (
+          <span key={text.content}>
+            {text.link ? <Link href={text.link.url} isExternal color='teal.500'>{text.content}</Link>: text.content}
+          </span>
+        ))
       }
     </>
   );
