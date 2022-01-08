@@ -35,7 +35,11 @@ const Home = ({data}: Props) => {
             /> 
           </Box>
           <Box mt={{ base: 4, md: 0 }} ml={{ md: 6 }} flexShrink={2}>
-            {data.map(block => <NotionBlock key={block.id} {...block} />)}
+            {data.map(block => (
+              <Box key={block.id} mb={4}>
+                <NotionBlock {...block} />
+              </Box>
+            ))}
           </Box>
         </Box>
       </main>
