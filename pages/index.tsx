@@ -2,10 +2,11 @@ import type { GetStaticProps } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import { getBlocks } from "../lib/notion";
-import NotionBlock, {BlockData} from '../components/NotionBlock';
-import { Box } from '@chakra-ui/react'
-import Fuji from '../resources/images/fuji.jpg';
+import { getBlocks } from "../lib/notion"
+import NotionBlock, {BlockData} from '../components/NotionBlock'
+import { Box, IconButton, Flex, Link } from '@chakra-ui/react'
+import { FaLinkedin, FaGithubSquare } from 'react-icons/fa'
+import Fuji from '../resources/images/fuji.jpg'
 import Navbar from '../components/Navbar';
 
 const pageId = process.env.NOTION_HOME_PAGE_ID || '';
@@ -40,6 +41,22 @@ const Home = ({data}: Props) => {
                 <NotionBlock {...block} />
               </Box>
             ))}
+            <Flex justify='center'>
+              <Link href='https://linkedin.com/in/alexandercaulfield' isExternal>
+                <IconButton
+                  aria-label='LinkedIn Profile'
+                  as={FaLinkedin}
+                  mx={2}
+                />
+              </Link>
+              <Link href='https://github.com/alexcaulfield' isExternal>
+                <IconButton
+                  aria-label='Github Profile'
+                  as={FaGithubSquare}
+                  mx={2}
+                />
+              </Link>
+            </Flex>
           </Box>
         </Box>
       </main>
