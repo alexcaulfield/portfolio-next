@@ -23,7 +23,7 @@ const Navbar = () => (
     </Flex>
     <Spacer />
     <Flex>
-      <Flex
+      {/* <Flex
         display={['flex', 'flex', 'none', 'none']}
       >
         <Menu isLazy>
@@ -39,7 +39,7 @@ const Navbar = () => (
             </MenuItem>
           </MenuList>
         </Menu>
-      </Flex>
+      </Flex> */}
       <ColorModeToggle />
     </Flex>
   </Flex>
