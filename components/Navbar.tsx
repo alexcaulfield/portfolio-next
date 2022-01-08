@@ -1,8 +1,8 @@
-import * as React from 'react'
 import Image from 'next/image'
-import { Flex, Heading, Menu, MenuButton, MenuList, MenuItem, IconButton, Container, Spacer } from '@chakra-ui/react'
-import { HamburgerIcon, MoonIcon } from '@chakra-ui/icons'
+import { Flex, Heading, Menu, MenuButton, MenuList, MenuItem, IconButton, Spacer } from '@chakra-ui/react'
+import { HamburgerIcon } from '@chakra-ui/icons'
 import Logo from '../resources/images/logo.png';
+import ColorModeToggle from './ColorModeToggle';
 
 const Navbar = () => (
   <Flex p={2} position='sticky'>
@@ -40,9 +40,7 @@ const Navbar = () => (
           </MenuList>
         </Menu>
       </Flex>
-      <IconButton aria-label="Toggle Mode" variant='outline' ml={2}>
-        <MoonIcon/>
-      </IconButton>
+      <ColorModeToggle />
     </Flex>
   </Flex>
 );
