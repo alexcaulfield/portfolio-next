@@ -4,7 +4,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { getBlocks } from "../lib/notion";
 import NotionBlock, {BlockData} from '../components/NotionBlock';
-import { Stack, HStack, Box } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import Fuji from '../resources/images/fuji.jpg';
 import Navbar from '../components/Navbar';
 
@@ -24,23 +24,20 @@ const Home = ({data}: Props) => {
 
       <Navbar />
       <main className={styles.main}>
-        <HStack spacing={6}>
-          <Box p={5} flex='1'>
+        <Box p={4} display={{ md: 'flex' }}>
+          <Box flexShrink={0}>
             <Image 
               width={600}
               height={400}
-              src={Fuji} 
-              layout='responsive' 
+              src={Fuji}
               alt='Mt Fuji'
               placeholder='blur'
             /> 
           </Box>
-          <Box p={5} flex='1'>
-            <Stack spacing={4}>
-              {data.map(block => <NotionBlock key={block.id} {...block} />)}
-            </Stack>
+          <Box mt={{ base: 4, md: 0 }} ml={{ md: 6 }} flexShrink={2}>
+            {data.map(block => <NotionBlock key={block.id} {...block} />)}
           </Box>
-        </HStack>
+        </Box>
       </main>
     </div>
   )
