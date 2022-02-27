@@ -36,7 +36,7 @@ const Home = ({data}: Props) => {
                 placeholder='blur'
               /> 
             </Box>
-            <Box mt={{ base: 4, md: 0 }} ml={{ md: 6 }} flexShrink={2}>
+            <Box mt={{ base: 4, md: 0 }} ml={{ md: 6 }}>
               {data.map(block => (
                 <Box key={block.id} mb={4}>
                   <NotionBlock {...block} />
