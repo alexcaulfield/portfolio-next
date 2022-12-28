@@ -30,8 +30,8 @@ const Home = ({data}: Props) => {
             <Box p={4} display={{ md: 'flex' }}>
               <Box flexShrink={0}>
                 <Image 
-                  width={600}
-                  height={400}
+                  width={500}
+                  height={300}
                   src={Fuji}
                   alt='Mt Fuji'
                   placeholder='blur'
