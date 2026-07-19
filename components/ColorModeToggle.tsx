@@ -8,6 +8,7 @@ import { IconButton } from '@chakra-ui/button'
 const ColorModeToggle = () => {
   const {colorMode, toggleColorMode} = useColorMode()
   return (
+    // @ts-ignore
     <IconButton aria-label="Toggle Color Theme" variant='outline' ml={2} onClick={toggleColorMode}>
       { colorMode === 'light' ? <MoonIcon/> : <SunIcon/> }
     </IconButton>
