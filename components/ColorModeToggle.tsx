@@ -1,3 +1,4 @@
+import React from 'react'
 import { useColorMode } from '@chakra-ui/color-mode'
 import {
   MoonIcon,
@@ -7,11 +8,16 @@ import { IconButton } from '@chakra-ui/button'
 
 const ColorModeToggle = () => {
   const {colorMode, toggleColorMode} = useColorMode()
+  const icon: React.ReactElement = colorMode === 'light' ? <MoonIcon /> : <SunIcon />
+  const Button = IconButton as React.ElementType
   return (
-    // @ts-ignore
-    <IconButton aria-label="Toggle Color Theme" variant='outline' ml={2} onClick={toggleColorMode}>
-      { colorMode === 'light' ? <MoonIcon/> : <SunIcon/> }
-    </IconButton>
+    <Button
+      aria-label="Toggle Color Theme"
+      variant='outline'
+      ml={2}
+      onClick={toggleColorMode}
+      icon={icon}
+    />
   )
 }
 
